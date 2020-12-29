@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install git make podman libfuse3-dev runc
+apt install -y git make podman libfuse3-dev runc
 
 mkdir ~/.config/containers/
 
