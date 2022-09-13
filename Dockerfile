@@ -113,7 +113,7 @@ RUN make -j${jobs} &&\
 
 # super_prove
 WORKDIR /workdir
-RUN wget https://downloads.bvsrc.org/super_prove/super_prove-hwmcc17_14-Ubuntu_14.04-Release.tar.gz
+#RUN wget https://downloads.bvsrc.org/super_prove/super_prove-hwmcc17_14-Ubuntu_14.04-Release.tar.gz
 RUN mkdir -p /usr/local/suprove &&\
     tar -C /usr/local/suprove -xzf super_prove-hwmcc17_14-Ubuntu_14.04-Release.tar.gz
 COPY suprove /usr/local/bin/suprove
@@ -178,7 +178,7 @@ RUN python3 -m venv .env &&\
 
 # alliance-check-toolkit
 WORKDIR /workdir
-RUN git clone https://gitlab.lip6.fr/jpc/alliance-check-toolkit.git
+#RUN git clone https://gitlab.lip6.fr/jpc/alliance-check-toolkit.git
 
 # alliance-check-toolkit and alliance
 WORKDIR /workdir
@@ -187,7 +187,7 @@ ENV ALLIANCE_TOP="/workdir/alliance/install"
 ENV LD_LIBRARY_PATH="${ALLIANCE_TOP}/lib:${LD_LIBRARY_PATH}"
 ENV LD_LIBRARY_PATH="${ALLIANCE_TOP}/lib64:${LD_LIBRARY_PATH}"
 #RUN git clone https://gitlab.lip6.fr/jpc/alliance-check-toolkit.git &&\
-RUN git clone https://www-soc.lip6.fr/git/alliance.git
+#RUN git clone https://www-soc.lip6.fr/git/alliance.git
 # FIXME the documentation was being annoying to build with having to rerun latex more than once
 RUN mkdir -p alliance/build alliance/install &&\
     cd alliance/alliance/src &&\
@@ -205,9 +205,9 @@ ENV HOME /home/${username}
 USER ${username}
 
 # coriolis
-RUN mkdir -p ${HOME}/coriolis-2.x/src &&\
-    cd ${HOME}/coriolis-2.x/src &&\
-    git clone https://www-soc.lip6.fr/git/coriolis.git
+#RUN mkdir -p ${HOME}/coriolis-2.x/src &&\
+#    cd ${HOME}/coriolis-2.x/src &&\
+#    git clone https://www-soc.lip6.fr/git/coriolis.git
 WORKDIR ${HOME}/coriolis-2.x/src/coriolis
 RUN git checkout devel &&\
     ./bootstrap/ccb.py --project=coriolis --make="-j${jobs} install" &&\
